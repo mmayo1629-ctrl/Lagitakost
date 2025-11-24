@@ -1,0 +1,173 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-width: 510px;
+    width: 100%;
+}
+
+.form-card h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 16px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #0056b3;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.remember-section {
+    margin: 20px 0;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0056b3;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-check-label {
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+.forgot-password {
+    text-align: left;
+    margin: 15px 0 25px 0;
+}
+
+.forgot-password a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #003d82;
+    text-decoration: underline;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+}
+
+.btn-submit:hover {
+    background: #004494;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 86, 179, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #666;
+    font-size: 15px;
+}
+
+.footer-text a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.footer-text a:hover {
+    color: #003d82;
+    text-decoration: underline;
+}
+
+.alert {
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: none;
+}
+
+.alert.show {
+    display: block;
+}
+
+.alert-danger {
+    background: #fee;
+    color: #c33;
+    border: 1px solid #fcc;
+}
+
+.alert-success {
+    background: #efe;
+    color: #3c3;
+    border: 1px solid #cfc;
+}
+
+@media (max-width: 480px) {
+    .form-card {
+        padding: 30px 25px;
+    }
+
+    .form-card h2 {
+        font-size: 26px;
+    }
+}

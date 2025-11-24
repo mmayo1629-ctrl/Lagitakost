@@ -1,0 +1,120 @@
+/* Consolidated Responsive Styles for Lagitakost System */
+
+/* Global Responsive Settings */
+@media (max-width: 1200px) {
+    .container, .rooms-container, .dashboard-container, .form-container {
+        padding: 20px 40px !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+}
+
+/* Navbar/Menu Common Styles */
+.navbar, .custom-navbar {
+    background-color: #5b9bd5 !important;
+    color: white !important;
+    box-shadow: 0 4px 8px rgba(91, 155, 213, 0.4);
+    border-radius: 8px;
+}
+
+.navbar a, .custom-navbar a, .navbar-menu a, .custom-navbar .navbar-menu a {
+    color: white !important;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .custom-navbar a:hover, .navbar-menu a:hover, .custom-navbar .navbar-menu a:hover {
+    color: #4a8bc2 !important;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Dropdown menus and submenu backgrounds */
+.navbar-menu li ul, .custom-navbar .navbar-menu li ul {
+    background-color: #4a8bc2 !important;
+    border-radius: 4px;
+}
+
+.navbar-menu li ul li a, .custom-navbar .navbar-menu li ul li a {
+    color: white !important;
+}
+
+.navbar-menu li ul li a:hover, .custom-navbar .navbar-menu li ul li a:hover {
+    background-color: #3a76b2 !important;
+}
+
+/* Active menu item */
+.navbar-menu li.active > a, .custom-navbar .navbar-menu li.active > a {
+    background-color: #3a76b2 !important;
+    color: white !important;
+    font-weight: 700;
+}
+
+/* Sidebar and vertical menus */
+.sidebar, .vertical-menu {
+    background-color: #5b9bd5 !important;
+    color: white !important;
+}
+
+.sidebar a, .vertical-menu a {
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover, .vertical-menu a:hover {
+    background-color: #4a8bc2 !important;
+    color: white !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 968px) {
+    .navbar-menu {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+    }
+
+    .navbar-menu.active {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 15px !important;
+        margin-top: 15px !important;
+    }
+
+    .custom-navbar {
+        flex-wrap: wrap !important;
+    }
+}
+
+/* Smaller devices adjustments */
+@media (max-width: 768px) {
+    .navbar, .custom-navbar {
+        padding: 10px 20px !important;
+        border-radius: 6px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .navbar, .custom-navbar {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .mobile-menu-toggle {
+        align-self: flex-end !important;
+    }
+}
