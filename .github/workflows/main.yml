@@ -16,15 +16,20 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
+
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
-          # ✅ INI YANG MEMPERBAIKI ERROR HOST KEY
+          # ✅ WAJIB ADA INI BIAR TIDAK ERROR HOST KEY
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+          # ✅ TEST KONEKSI SEKALIGUS
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 \
+            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo SSH CONNECTED"
 
       - name: Deploy to VPS
         run: |
-          ssh -i ~/.ssh/id_ed25519 \
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 \
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << EOF
             cd ${{ secrets.SERVER_PATH }}
             git pull origin main
