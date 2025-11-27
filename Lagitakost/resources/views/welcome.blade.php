@@ -218,7 +218,7 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h1 class="welcome-title">Tolong YAALLAH<br>Lagita Kost</h1>
+        <h1 class="welcome-title">Welcome to<br>Lagita Kost</h1>
         <p class="welcome-subtitle">Comfort First, Price Friendly</p>
 
         <a href="{{ route('login') }}" class="cta-button">
