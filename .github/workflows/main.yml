@@ -1,4 +1,4 @@
-name: Deploy Lagitakost to VPS
+name: Auto Deploy Lagitakost
 
 on:
   push:
@@ -10,28 +10,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-
-          # Tambahkan VPS ke known_hosts (pakai IP LANGSUNG)
           ssh-keyscan -H 103.103.21.206 >> ~/.ssh/known_hosts
-
-      - name: Test SSH Connection
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 mayosi@103.103.21.206 "echo '✅ SSH CONNECTED'"
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 mayosi@103.103.21.206 << EOF
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 mayosi@103.103.21.206 << 'EOF'
             cd /var/www/Lagitakost/Lagitakost
+
+            echo "🚀 PULL REPO..."
             git pull origin main
+
+            echo "📦 INSTALL DEPENDENCY..."
+            composer install --no-interaction --prefer-dist --optimize-autoloader
+
+            echo "🧹 CLEAR CACHE..."
             php artisan config:clear
             php artisan cache:clear
-            echo "✅ Deploy selesai"
+            php artisan route:clear
+            php artisan view:clear
+
+            echo "⚡ OPTIMIZE..."
+            php artisan optimize
+
+            echo "✅ AUTO DEPLOY SELESAI"
           EOF
