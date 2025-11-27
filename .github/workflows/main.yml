@@ -18,16 +18,17 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
+          
+          # 🔥 INI YANG MENGHILANGKAN ERROR "Host key verification failed"
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to VPS
         run: |
           ssh -i ~/.ssh/id_ed25519 \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << EOF
-              cd /var/www/Lagitakost/Lagitakost
-              git pull origin main
-              php artisan migrate --force || true
-              php artisan config:clear
-              php artisan cache:clear
-              echo "✅ Deploy selesai"
-            EOF
+            cd /var/www/Lagitakost/Lagitakost
+            git pull origin main
+            php artisan migrate --force || true
+            php artisan optimize:clear
+            echo "✅ Deploy selesai"
+          EOF
