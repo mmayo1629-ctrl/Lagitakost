@@ -14,15 +14,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup SSH
-        shell: bash
         run: |
-          set -e
           mkdir -p ~/.ssh
           printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
       - name: Deploy to VPS
-        shell: bash
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 \
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << EOF
