@@ -1,0 +1,32 @@
+name: Auto Deploy Lagitakost
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Disable Host Key Checking
+        run: |
+          echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+
+      - name: Deploy to VPS
+        run: |
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+            cd ${{ secrets.SERVER_PATH }}
+            git pull origin main
+            echo "✅ AUTO DEPLOY BERHASIL"
+          EOF
