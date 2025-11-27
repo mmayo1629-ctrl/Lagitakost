@@ -22,8 +22,8 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-          cd ${{ secrets.SERVER_PATH }}
-          git pull origin main
-          echo "✅ Deploy selesai"
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+            cd ${{ secrets.SERVER_PATH }}
+            git pull origin main
+            echo "✅ Deploy selesai"
           EOF
