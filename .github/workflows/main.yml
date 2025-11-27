@@ -13,14 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup SSH Key
+      - name: Setup SSH
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
-          chmod 600 key.pem
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem \
+          ssh -i ~/.ssh/id_ed25519 \
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << EOF
             cd ${{ secrets.SERVER_PATH }}
             git pull origin main
