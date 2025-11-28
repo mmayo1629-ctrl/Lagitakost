@@ -159,40 +159,269 @@
             box-shadow: 0 6px 20px rgba(91, 155, 213, 0.4);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
+            .navbar {
+                padding: 18px 50px;
+            }
+
+            .welcome-title {
+                font-size: 50px;
+            }
+
+            .illustration svg {
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 968px) {
             .navbar {
                 padding: 15px 30px;
             }
 
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .logo-section {
+                order: 1;
+            }
+
+            .nav-buttons {
+                order: 2;
+                gap: 12px;
+            }
+
             .welcome-title {
-                font-size: 40px;
+                font-size: 42px;
             }
 
             .welcome-subtitle {
-                font-size: 16px;
+                font-size: 17px;
+                margin-bottom: 40px;
             }
 
             .illustration svg {
-                width: 300px;
+                width: 320px;
+            }
+
+            .cta-button {
+                padding: 16px 50px;
+                font-size: 17px;
             }
 
             .nav-btn {
-                padding: 8px 20px;
+                padding: 9px 22px;
                 font-size: 14px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 15px;
+            }
+
+            .logo-section {
+                gap: 10px;
+            }
+
+            .brand-name {
+                font-size: 20px;
+            }
+
+            .brand-tagline {
+                font-size: 11px;
+            }
+
+            .nav-buttons {
+                gap: 10px;
+            }
+
+            .nav-btn {
+                padding: 8px 18px;
+                font-size: 13px;
+            }
+
+            .main-content {
+                padding: 30px 15px;
+            }
+
+            .welcome-title {
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+
+            .welcome-subtitle {
+                font-size: 15px;
+                margin-bottom: 35px;
+            }
+
+            .illustration {
+                margin-bottom: 40px;
+            }
+
+            .illustration svg {
+                width: 280px;
+            }
+
+            .cta-button {
+                padding: 14px 40px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .navbar {
+                padding: 10px 12px;
+            }
+
+            .logo {
+                width: 35px;
+                height: 35px;
+                font-size: 13px;
+            }
+
             .brand-name {
                 font-size: 18px;
             }
 
+            .brand-tagline {
+                font-size: 10px;
+            }
+
+            .nav-buttons {
+                gap: 8px;
+            }
+
+            .nav-btn {
+                padding: 7px 16px;
+                font-size: 12px;
+            }
+
+            .main-content {
+                padding: 25px 12px;
+            }
+
             .welcome-title {
                 font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            .welcome-subtitle {
+                font-size: 14px;
+                margin-bottom: 30px;
             }
 
             .illustration svg {
                 width: 250px;
+            }
+
+            .cta-button {
+                padding: 12px 35px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 8px 10px;
+            }
+
+            .logo {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .brand-name {
+                font-size: 16px;
+            }
+
+            .brand-tagline {
+                font-size: 9px;
+            }
+
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-btn {
+                padding: 6px 14px;
+                font-size: 11px;
+                min-width: 70px;
+            }
+
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .welcome-title {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .welcome-subtitle {
+                font-size: 13px;
+                margin-bottom: 25px;
+            }
+
+            .illustration svg {
+                width: 220px;
+            }
+
+            .cta-button {
+                padding: 10px 30px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .navbar {
+                padding: 6px 8px;
+            }
+
+            .logo {
+                width: 28px;
+                height: 28px;
+                font-size: 10px;
+            }
+
+            .brand-name {
+                font-size: 14px;
+            }
+
+            .brand-tagline {
+                font-size: 8px;
+            }
+
+            .nav-btn {
+                padding: 5px 12px;
+                font-size: 10px;
+                min-width: 60px;
+            }
+
+            .main-content {
+                padding: 15px 8px;
+            }
+
+            .welcome-title {
+                font-size: 24px;
+            }
+
+            .welcome-subtitle {
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+
+            .illustration svg {
+                width: 180px;
+            }
+
+            .cta-button {
+                padding: 8px 25px;
+                font-size: 13px;
             }
         }
     </style>
@@ -218,7 +447,7 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h1 class="welcome-title">Kiyaaaaa<br>Lagita Kost</h1>
+        <h1 class="welcome-title">Welcome to<br>Lagita Kost</h1>
         <p class="welcome-subtitle">Comfort First, Price Friendly</p>
 
         <a href="{{ route('login') }}" class="cta-button">

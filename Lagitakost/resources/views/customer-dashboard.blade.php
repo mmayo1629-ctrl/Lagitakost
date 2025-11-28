@@ -121,6 +121,111 @@
         font-size: 24px;
         cursor: pointer;
         color: #1a1a1a;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .mobile-menu-toggle:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100%;
+        background: white;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+        padding: 5px;
+    }
+
+    .mobile-menu-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu-nav li {
+        margin-bottom: 10px;
+    }
+
+    .mobile-menu-nav a {
+        display: block;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .mobile-menu-nav a:hover {
+        background: #f8f9fa;
+        color: #1a1a1a;
+    }
+
+    .mobile-menu-actions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .mobile-logout-btn {
+        width: 100%;
+        background: #000;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .mobile-logout-btn:hover {
+        background: #333;
     }
 
     .dashboard-container {
@@ -302,15 +407,39 @@
         font-size: 16px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
+        .custom-navbar {
+            padding: 15px 30px;
+        }
+
+        .navbar-menu {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+        }
+
+        .navbar-actions .logout-btn {
+            display: none;
+        }
+
         .dashboard-container {
-            padding: 20px;
+            padding: 25px 20px;
         }
 
         .dashboard-header {
             flex-direction: column;
             gap: 20px;
             text-align: center;
+        }
+
+        .dashboard-title {
+            font-size: 28px;
+        }
+
+        .dashboard-subtitle {
+            font-size: 16px;
         }
 
         .booking-item {
@@ -322,6 +451,225 @@
         .booking-actions {
             width: 100%;
             justify-content: flex-end;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .custom-navbar {
+            padding: 12px 15px;
+        }
+
+        .brand-name {
+            font-size: 16px;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+        }
+
+        .dashboard-container {
+            padding: 20px 15px;
+        }
+
+        .dashboard-header {
+            gap: 15px;
+        }
+
+        .dashboard-title {
+            font-size: 26px;
+        }
+
+        .dashboard-subtitle {
+            font-size: 15px;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .card-header {
+            padding: 18px 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .booking-item {
+            padding: 15px 0;
+        }
+
+        .booking-room {
+            font-size: 16px;
+        }
+
+        .booking-dates {
+            font-size: 13px;
+        }
+
+        .booking-price {
+            font-size: 15px;
+        }
+
+        .booking-status {
+            font-size: 11px;
+            padding: 3px 10px;
+        }
+
+        .mark-read-btn {
+            padding: 6px 12px;
+            font-size: 11px;
+        }
+
+        .no-bookings {
+            padding: 40px 15px;
+        }
+
+        .no-bookings-title {
+            font-size: 20px;
+        }
+
+        .no-bookings-text {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .dashboard-container {
+            padding: 15px 10px;
+        }
+
+        .dashboard-header {
+            gap: 15px;
+        }
+
+        .dashboard-title {
+            font-size: 28px;
+        }
+
+        .dashboard-subtitle {
+            font-size: 14px;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 13px;
+        }
+
+        .card-header {
+            padding: 15px 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+        }
+
+        .card-body {
+            padding: 20px 15px;
+        }
+
+        .booking-item {
+            padding: 15px 0;
+        }
+
+        .booking-room {
+            font-size: 16px;
+        }
+
+        .booking-dates {
+            font-size: 13px;
+        }
+
+        .booking-price {
+            font-size: 15px;
+        }
+
+        .booking-status {
+            font-size: 11px;
+            padding: 3px 10px;
+        }
+
+        .mark-read-btn {
+            padding: 6px 12px;
+            font-size: 11px;
+        }
+
+        .no-bookings {
+            padding: 40px 15px;
+        }
+
+        .no-bookings-title {
+            font-size: 20px;
+        }
+
+        .no-bookings-text {
+            font-size: 14px;
+        }
+
+        .custom-navbar {
+            padding: 12px 15px;
+        }
+
+        .brand-name {
+            font-size: 16px;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+        }
+
+        .navbar-menu {
+            gap: 25px;
+        }
+
+        .navbar-menu a {
+            font-size: 14px;
+        }
+
+        .logout-btn {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+
+        .logout-popup {
+            width: 95%;
+        }
+
+        .logout-popup-header {
+            padding: 15px 20px;
+        }
+
+        .logout-popup-title {
+            font-size: 16px;
+        }
+
+        .logout-popup-body {
+            padding: 20px 15px;
+        }
+
+        .logout-popup-message {
+            font-size: 15px;
+        }
+
+        .logout-popup-submessage {
+            font-size: 13px;
+        }
+
+        .logout-popup-actions {
+            padding: 15px 20px 20px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .logout-popup-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
         }
     }
 </style>
@@ -347,8 +695,36 @@
         <button type="button" class="logout-btn" onclick="showLogoutPopup()">Logout</button>
     </div>
 
-    <button class="mobile-menu-toggle">☰</button>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <div class="navbar-brand-custom">
+            <div class="brand-logo">LK</div>
+            <div class="brand-text">
+                <span class="brand-name">Lagita Kost</span>
+                <span class="brand-tagline">Customer Dashboard</span>
+            </div>
+        </div>
+        <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
+    </div>
+
+    <nav class="mobile-menu-nav">
+        <li><a href="{{ route('rooms') }}">Kamar</a></li>
+        <li><a href="{{ route('fasilitas') }}">Fasilitas</a></li>
+        <li><a href="{{ route('location') }}">Lokasi</a></li>
+        <li><a href="{{ route('contact') }}">Kontak</a></li>
+    </nav>
+
+    <div class="mobile-menu-actions">
+        <button type="button" class="mobile-logout-btn" onclick="showLogoutPopup(); closeMobileMenu();">Logout</button>
+    </div>
+</div>
 
 <div class="dashboard-container">
     <div class="dashboard-header">
@@ -564,6 +940,41 @@ function hideLogoutPopup() {
 document.getElementById('logoutPopup').addEventListener('click', function(e) {
     if (e.target === this) {
         hideLogoutPopup();
+    }
+});
+
+// Mobile Menu Functions
+function toggleMobileMenu() {
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const menu = document.getElementById('mobileMenu');
+
+    if (menu.classList.contains('active')) {
+        closeMobileMenu();
+    } else {
+        overlay.style.display = 'block';
+        menu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closeMobileMenu() {
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const menu = document.getElementById('mobileMenu');
+
+    overlay.style.display = 'none';
+    menu.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Close mobile menu when clicking on menu links
+document.querySelectorAll('.mobile-menu-nav a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+});
+
+// Close mobile menu on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeMobileMenu();
     }
 });
 </script>

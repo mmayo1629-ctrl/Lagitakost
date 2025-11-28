@@ -155,6 +155,131 @@
         font-size: 24px;
         cursor: pointer;
         color: #1a1a1a;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .mobile-menu-toggle:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100%;
+        background: white;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+        padding: 5px;
+    }
+
+    .mobile-menu-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu-nav li {
+        margin-bottom: 10px;
+    }
+
+    .mobile-menu-nav a {
+        display: block;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .mobile-menu-nav a:hover {
+        background: #f8f9fa;
+        color: #1a1a1a;
+    }
+
+    .mobile-menu-actions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .mobile-contact-btn,
+    .mobile-logout-btn {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+    }
+
+    .mobile-contact-btn {
+        background: #1a1a1a;
+        color: white;
+        border: none;
+    }
+
+    .mobile-contact-btn:hover {
+        background: #333;
+    }
+
+    .mobile-logout-btn {
+        background: #000;
+        color: white;
+        border: none;
+    }
+
+    .mobile-logout-btn:hover {
+        background: #333;
     }
 
     /* Financial Report Styles */
@@ -334,18 +459,6 @@
     }
 
     @media (max-width: 968px) {
-        .report-container {
-            padding: 30px 30px;
-        }
-
-        .details-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .stats-grid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
         .custom-navbar {
             padding: 15px 30px;
         }
@@ -358,8 +471,342 @@
             display: block;
         }
 
-        .navbar-actions .phone-number {
+        .navbar-actions {
             display: none;
+        }
+
+        .report-container {
+            padding: 25px 20px;
+        }
+
+        .report-header {
+            margin-bottom: 30px;
+        }
+
+        .report-title {
+            font-size: 28px;
+        }
+
+        .report-subtitle {
+            font-size: 16px;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 32px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+        }
+
+        .details-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .details-card {
+            padding: 20px;
+        }
+
+        .details-title {
+            font-size: 18px;
+        }
+
+        .detail-item {
+            padding: 12px 0;
+        }
+
+        .detail-label {
+            font-size: 14px;
+        }
+
+        .detail-value {
+            font-size: 15px;
+        }
+
+        .back-btn {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .report-container {
+            padding: 20px 15px;
+        }
+
+        .report-header {
+            margin-bottom: 30px;
+        }
+
+        .report-title {
+            font-size: 28px;
+        }
+
+        .report-subtitle {
+            font-size: 14px;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            padding: 20px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 32px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+        }
+
+        .chart-container {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart-title {
+            font-size: 18px;
+        }
+
+        .chart-subtitle {
+            font-size: 13px;
+        }
+
+        .chart-placeholder {
+            height: 250px;
+        }
+
+        .details-card {
+            padding: 20px;
+        }
+
+        .details-title {
+            font-size: 18px;
+        }
+
+        .detail-item {
+            padding: 12px 0;
+        }
+
+        .detail-label {
+            font-size: 14px;
+        }
+
+        .detail-value {
+            font-size: 15px;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .custom-navbar {
+            padding: 12px 15px;
+        }
+
+        .brand-name {
+            font-size: 16px;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+        }
+
+        .navbar-actions {
+            gap: 10px;
+        }
+
+        .contact-button {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+
+        .logout-btn {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .report-container {
+            padding: 15px 10px;
+        }
+
+        .report-header {
+            margin-bottom: 25px;
+        }
+
+        .report-title {
+            font-size: 24px;
+        }
+
+        .report-subtitle {
+            font-size: 13px;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            padding: 15px;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+        }
+
+        .chart-container {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+        }
+
+        .chart-subtitle {
+            font-size: 12px;
+        }
+
+        .chart-placeholder {
+            height: 200px;
+            font-size: 14px;
+        }
+
+        .details-grid {
+            gap: 20px;
+        }
+
+        .details-card {
+            padding: 15px;
+        }
+
+        .details-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .detail-item {
+            padding: 10px 0;
+        }
+
+        .detail-label {
+            font-size: 13px;
+        }
+
+        .detail-value {
+            font-size: 14px;
+        }
+
+        .back-btn {
+            padding: 8px 16px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .custom-navbar {
+            padding: 10px 12px;
+        }
+
+        .brand-logo {
+            width: 36px;
+            height: 36px;
+            font-size: 14px;
+        }
+
+        .brand-name {
+            font-size: 14px;
+        }
+
+        .brand-tagline {
+            font-size: 10px;
+        }
+
+        .navbar-actions {
+            gap: 8px;
+        }
+
+        .contact-button {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .logout-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .logout-popup {
+            width: 95%;
+        }
+
+        .logout-popup-header {
+            padding: 15px 20px;
+        }
+
+        .logout-popup-title {
+            font-size: 16px;
+        }
+
+        .logout-popup-body {
+            padding: 20px 15px;
+        }
+
+        .logout-popup-message {
+            font-size: 15px;
+        }
+
+        .logout-popup-submessage {
+            font-size: 13px;
+        }
+
+        .logout-popup-actions {
+            padding: 15px 20px 20px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .logout-popup-btn {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
         }
     }
 
@@ -511,6 +958,42 @@
     <button class="mobile-menu-toggle">☰</button>
 </nav>
 
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <div class="navbar-brand-custom">
+            <div class="brand-logo">LK</div>
+            <div class="brand-text">
+                <div class="brand-name">Lagita Kost</div>
+                <div class="brand-tagline">Financial Report</div>
+            </div>
+        </div>
+        <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
+    </div>
+
+    <ul class="mobile-menu-nav">
+        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ route('rooms.index') }}">Kelola Kamar</a></li>
+        <li><a href="{{ route('tenants.index') }}">Kelola Penghuni</a></li>
+        <li><a href="{{ route('bookings.index') }}">Booking</a></li>
+        <li><a href="{{ route('financial-report') }}">Laporan Keuangan</a></li>
+        <li><a href="{{ route('activities.index') }}">Aktivitas</a></li>
+    </ul>
+
+    <div class="mobile-menu-actions">
+        <a href="tel:+6287761001778" class="mobile-contact-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Hubungi Admin
+        </a>
+        <button type="button" class="mobile-logout-btn" onclick="showLogoutPopup()">Logout</button>
+    </div>
+</div>
+
 <div class="report-container">
     <a href="{{ route('dashboard') }}" class="back-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -552,16 +1035,7 @@
             <div class="stat-label">Booking Dikonfirmasi</div>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12,6 12,12 16,14"></polyline>
-                </svg>
-            </div>
-            <div class="stat-number">{{ $pendingPayments }}</div>
-            <div class="stat-label">Menunggu Pembayaran</div>
-        </div>
+
 
         <div class="stat-card">
             <div class="stat-icon">
@@ -578,18 +1052,7 @@
         </div>
     </div>
 
-    <!-- Revenue Chart -->
-    <div class="chart-container">
-        <div class="chart-header">
-            <div>
-                <h2 class="chart-title">Trend Pendapatan 6 Bulan Terakhir</h2>
-                <p class="chart-subtitle">Perbandingan pendapatan bulanan</p>
-            </div>
-        </div>
-        <div class="chart-placeholder">
-            Chart akan ditampilkan di sini (menggunakan Chart.js atau library serupa)
-        </div>
-    </div>
+
 
     <!-- Details Grid -->
     <div class="details-grid">
@@ -611,10 +1074,7 @@
                 <span class="detail-label">Total Booking Bulan Ini</span>
                 <span class="detail-value">{{ $monthlyBookings }}</span>
             </div>
-            <div class="detail-item">
-                <span class="detail-label">Booking Menunggu Pembayaran</span>
-                <span class="detail-value">{{ $pendingPayments }}</span>
-            </div>
+
             <div class="detail-item">
                 <span class="detail-label">Rata-rata Pendapatan per Booking</span>
                 <span class="detail-value">Rp {{ number_format($averageRevenuePerBooking, 0, ',', '.') }}</span>

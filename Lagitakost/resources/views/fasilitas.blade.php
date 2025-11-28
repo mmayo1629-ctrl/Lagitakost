@@ -205,6 +205,145 @@
         font-size: 24px;
         cursor: pointer;
         color: #1a1a1a;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .mobile-menu-toggle:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100%;
+        background: white;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+        right: 0;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+        padding: 5px;
+    }
+
+    .mobile-menu-nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu-nav li {
+        margin-bottom: 10px;
+    }
+
+    .mobile-menu-nav a {
+        display: block;
+        padding: 12px 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .mobile-menu-nav a:hover {
+        background: #f8f9fa;
+        color: #1a1a1a;
+    }
+
+    .mobile-menu-actions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .mobile-contact-btn,
+    .mobile-logout-btn,
+    .mobile-login-btn,
+    .mobile-register-btn {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+    }
+
+    .mobile-contact-btn {
+        background: #1a1a1a;
+        color: white;
+        border: none;
+    }
+
+    .mobile-contact-btn:hover {
+        background: #333;
+    }
+
+    .mobile-logout-btn {
+        background: #000;
+        color: white;
+        border: none;
+    }
+
+    .mobile-logout-btn:hover {
+        background: #333;
+    }
+
+    .mobile-login-btn,
+    .mobile-register-btn {
+        background: #1a1a1a;
+        color: white;
+        border: none;
+    }
+
+    .mobile-login-btn:hover,
+    .mobile-register-btn:hover {
+        background: #333;
     }
 
     @media (max-width: 968px) {
@@ -382,25 +521,425 @@
         line-height: 1.6;
     }
 
+    @media (max-width: 1200px) {
+        .facilities-container {
+            padding: 50px 60px;
+        }
+
+        .facilities-grid,
+        .additional-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .facility-card,
+        .additional-card {
+            padding: 30px 25px;
+        }
+    }
+
     @media (max-width: 1024px) {
+        .facilities-container {
+            padding: 45px 50px;
+        }
+
         .facilities-grid,
         .additional-grid {
             grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .facility-card,
+        .additional-card {
+            padding: 28px 22px;
+        }
+
+        .facility-name,
+        .additional-name {
+            font-size: 18px;
+        }
+
+        .facility-description,
+        .additional-description {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 968px) {
+        .custom-navbar {
+            padding: 15px 30px;
+        }
+
+        .navbar-menu {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+        }
+
+        .navbar-actions .phone-number {
+            display: none;
+        }
+
+        .facilities-container {
+            padding: 40px 30px;
+        }
+
+        .facilities-header {
+            margin-bottom: 50px;
+        }
+
+        .facilities-title {
+            font-size: 32px;
+        }
+
+        .facilities-subtitle {
+            font-size: 15px;
+            max-width: 500px;
+        }
+
+        .facilities-grid,
+        .additional-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .facility-card,
+        .additional-card {
+            padding: 25px 20px;
+        }
+
+        .facility-image {
+            height: 180px;
+        }
+
+        .facility-content {
+            padding: 25px;
+        }
+
+        .facility-name,
+        .additional-name {
+            font-size: 17px;
+        }
+
+        .facility-description,
+        .additional-description {
+            font-size: 13px;
+        }
+
+        .additional-facilities {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            margin-bottom: 35px;
         }
     }
 
     @media (max-width: 768px) {
+        .custom-navbar {
+            padding: 12px 20px;
+        }
+
+        .brand-name {
+            font-size: 16px;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+        }
+
         .facilities-container {
-            padding: 40px 30px;
+            padding: 30px 20px;
+        }
+
+        .facilities-header {
+            margin-bottom: 40px;
+        }
+
+        .facilities-title {
+            font-size: 28px;
+        }
+
+        .facilities-subtitle {
+            font-size: 14px;
+            max-width: 100%;
         }
 
         .facilities-grid,
         .additional-grid {
             grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .facility-card,
+        .additional-card {
+            padding: 20px 18px;
+        }
+
+        .facility-image {
+            height: 160px;
+        }
+
+        .facility-content {
+            padding: 20px;
+        }
+
+        .facility-name,
+        .additional-name {
+            font-size: 16px;
+        }
+
+        .facility-description,
+        .additional-description {
+            font-size: 12px;
+        }
+
+        .additional-facilities {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .additional-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .additional-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .custom-navbar {
+            padding: 10px 15px;
+        }
+
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+            font-size: 14px;
+        }
+
+        .brand-name {
+            font-size: 15px;
+        }
+
+        .brand-tagline {
+            font-size: 10px;
+        }
+
+        .facilities-container {
+            padding: 25px 15px;
+        }
+
+        .facilities-header {
+            margin-bottom: 35px;
         }
 
         .facilities-title {
-            font-size: 28px;
+            font-size: 26px;
+        }
+
+        .facilities-subtitle {
+            font-size: 13px;
+        }
+
+        .facility-card,
+        .additional-card {
+            padding: 18px 16px;
+        }
+
+        .facility-image {
+            height: 140px;
+        }
+
+        .facility-content {
+            padding: 18px;
+        }
+
+        .facility-name,
+        .additional-name {
+            font-size: 15px;
+        }
+
+        .facility-description,
+        .additional-description {
+            font-size: 11px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .additional-icon {
+            width: 55px;
+            height: 55px;
+        }
+
+        .additional-icon svg {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .custom-navbar {
+            padding: 8px 12px;
+        }
+
+        .brand-logo {
+            width: 35px;
+            height: 35px;
+            font-size: 12px;
+        }
+
+        .brand-name {
+            font-size: 14px;
+        }
+
+        .brand-tagline {
+            font-size: 9px;
+        }
+
+        .facilities-container {
+            padding: 20px 12px;
+        }
+
+        .facilities-header {
+            margin-bottom: 30px;
+        }
+
+        .facilities-title {
+            font-size: 24px;
+        }
+
+        .facilities-subtitle {
+            font-size: 12px;
+        }
+
+        .facility-card,
+        .additional-card {
+            padding: 16px 14px;
+        }
+
+        .facility-image {
+            height: 120px;
+        }
+
+        .facility-content {
+            padding: 16px;
+        }
+
+        .facility-name,
+        .additional-name {
+            font-size: 14px;
+        }
+
+        .facility-description,
+        .additional-description {
+            font-size: 10px;
+        }
+
+        .additional-facilities {
+            margin-top: 35px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .additional-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .additional-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .custom-navbar {
+            padding: 6px 10px;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+            font-size: 10px;
+        }
+
+        .brand-name {
+            font-size: 12px;
+        }
+
+        .brand-tagline {
+            font-size: 8px;
+        }
+
+        .facilities-container {
+            padding: 15px 10px;
+        }
+
+        .facilities-header {
+            margin-bottom: 25px;
+        }
+
+        .facilities-title {
+            font-size: 20px;
+        }
+
+        .facilities-subtitle {
+            font-size: 11px;
+        }
+
+        .facility-card,
+        .additional-card {
+            padding: 14px 12px;
+        }
+
+        .facility-image {
+            height: 100px;
+        }
+
+        .facility-content {
+            padding: 14px;
+        }
+
+        .facility-name,
+        .additional-name {
+            font-size: 13px;
+        }
+
+        .facility-description,
+        .additional-description {
+            font-size: 9px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .additional-icon {
+            width: 45px;
+            height: 45px;
+        }
+
+        .additional-icon svg {
+            width: 20px;
+            height: 20px;
         }
     }
 </style>
@@ -493,13 +1032,90 @@
             </svg>
         </button>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="navbar-brand-custom">
+                <div class="brand-logo">LK</div>
+                <div class="brand-text">
+                    <div class="brand-name">Lagita Kost</div>
+                    <div class="brand-tagline">Kost Modern & Nyaman</div>
+                </div>
+            </div>
+            <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
+        </div>
+
+        <ul class="mobile-menu-nav">
+            <li><a href="{{ route('home') }}">Beranda</a></li>
+            <li><a href="{{ route('rooms') }}">Kamar</a></li>
+            <li><a href="{{ route('fasilitas') }}">Fasilitas</a></li>
+            <li><a href="{{ route('location') }}">Lokasi</a></li>
+            <li><a href="{{ route('contact') }}">Kontak</a></li>
+        </ul>
+
+        <div class="mobile-menu-actions">
+            @if(Auth::check())
+                <a href="tel:+6287761001778" class="mobile-contact-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Hubungi Admin
+                </a>
+                <button type="button" class="mobile-logout-btn" onclick="showLogoutPopup()">Logout</button>
+            @else
+                <a href="tel:+6287761001778" class="mobile-contact-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Hubungi Admin
+                </a>
+                <a href="{{ route('login') }}" class="mobile-login-btn">Login</a>
+                <a href="{{ route('register') }}" class="mobile-register-btn">Daftar</a>
+            @endif
+        </div>
+    </div>
 @endif
 
 <script>
     function toggleMobileMenu() {
-        // Mobile menu toggle functionality can be added here
-        alert('Mobile menu functionality to be implemented');
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileMenuOverlay');
+        const body = document.body;
+
+        if (menu.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            menu.classList.add('active');
+            overlay.style.display = 'block';
+            body.style.overflow = 'hidden';
+        }
     }
+
+    function closeMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileMenuOverlay');
+        const body = document.body;
+
+        menu.classList.remove('active');
+        overlay.style.display = 'none';
+        body.style.overflow = 'auto';
+    }
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+
+    // Close mobile menu when clicking on a menu item
+    document.querySelectorAll('.mobile-menu-nav a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
 </script>
 
 <div class="facilities-container">

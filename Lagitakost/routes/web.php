@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 
     // CUSTOMER — ROOM LIST
     Route::get('/kamar', [RoomController::class, 'customerIndex'])
-        ->name('customer.rooms.index');
+        ->name('rooms');
 
     Route::get('/kamar/{id}', [RoomController::class, 'customerShow'])
         ->name('customer.rooms.show');
@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     // ADMIN — ROOM MANAGEMENT
     Route::prefix('admin')->middleware('admin')->group(function () {
         Route::resource('rooms', RoomController::class);
+        Route::patch('rooms/{room}/toggle-availability', [RoomController::class, 'toggleAvailability'])->name('rooms.toggle-availability');
     });
 
     // Static pages
